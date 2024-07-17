@@ -6,29 +6,25 @@
 int** matrixMultiplication(int rowm1, int colm1, int rowm2, int colm2, int mat1[rowm1][colm1],int mat2[rowm2][colm2]) {
 
     //checking if multiplication is possible
-    if (colm1 != rowm2 ) {
-        printf("multiplication not possible"); 
-        return NULL;
+    // mallocing size for results matrix
+    int** result = (int**)malloc(rowm1 * sizeof(int*)); 
+    for (int i = 0; i < rowm1; i++){
+        result[i] = (int*)malloc(colm2 * sizeof(int));
     }
-        // mallocing size for results matrix
-        int** result = (int**)malloc(rowm1 * sizeof(int*)); 
-        for (int i = 0; i < rowm1; i++){
-            result[i] = (int*)malloc(colm2 * sizeof(int));
-        }
 
-        // dot product output 
-        int total = 0; 
-        for (int i = 0; i < rowm1; i++){
-            for (int j = 0; j < colm2; j++){
-                result[i][j] = 0; 
-                for (int k = 0; k < rowm2; k++){
-                    result[i][j] = result[i][j] + mat1[i][k] * mat2[k][j]; 
-                }
+    // dot product output 
+    int total = 0; 
+    for (int i = 0; i < rowm1; i++){
+        for (int j = 0; j < colm2; j++){
+            result[i][j] = 0; 
+            for (int k = 0; k < rowm2; k++){
+                result[i][j] = result[i][j] + mat1[i][k] * mat2[k][j]; 
             }
         }
-
-        return result; 
     }
+
+    return result; 
+}
 
 void displayMatrix(int rows, int cols, int** mat) {
     for (int i = 0; i < rows; i++) {
@@ -44,9 +40,14 @@ int main() {
     
 
     int rowm1 = 2; 
-    int colm1 = 4;
+    int colm1 = 5;
     int rowm2 = 4;
     int colm2 = 2;
+
+    if (colm1 != rowm2) {
+        printf("multiplication not possible \n");
+        return NULL; 
+    }
 
     int mat1[2][4] = {
         {1, 2, 3, 5},
