@@ -16,7 +16,7 @@ int** matrixMultiplication(int rowm1, int colm1, int rowm2, int colm2, int mat1[
             result[i] = (int*)malloc(colm2 * sizeof(int));
         }
 
-        // return output 
+        // dot product output 
         int total = 0; 
         for (int i = 0; i < rowm1; i++){
             for (int j = 0; j < colm2; j++){
@@ -42,6 +42,7 @@ void displayMatrix(int rows, int cols, int** mat) {
 
 int main() {
     
+
     int rowm1 = 2; 
     int colm1 = 4;
     int rowm2 = 4;
