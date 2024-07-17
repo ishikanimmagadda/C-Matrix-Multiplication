@@ -40,7 +40,7 @@ int main() {
     
 
     int rowm1 = 2; 
-    int colm1 = 5;
+    int colm1 = 4;
     int rowm2 = 4;
     int colm2 = 2;
 
