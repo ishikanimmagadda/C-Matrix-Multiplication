@@ -5,6 +5,11 @@
 
 int** matrixMultiplication(int rowm1, int colm1, int rowm2, int colm2, int mat1[rowm1][colm1],int mat2[rowm2][colm2]) {
 
+    if (colm1 != rowm2) {
+        printf("multiplication not possible \n");
+        return NULL; 
+    }
+
     // mallocing size for results matrix
     int** result = (int**)malloc(rowm1 * sizeof(int*)); 
     for (int i = 0; i < rowm1; i++){
