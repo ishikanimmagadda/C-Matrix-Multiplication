@@ -5,7 +5,6 @@
 
 int** matrixMultiplication(int rowm1, int colm1, int rowm2, int colm2, int mat1[rowm1][colm1],int mat2[rowm2][colm2]) {
 
-    //checking if multiplication is possible
     // mallocing size for results matrix
     int** result = (int**)malloc(rowm1 * sizeof(int*)); 
     for (int i = 0; i < rowm1; i++){
